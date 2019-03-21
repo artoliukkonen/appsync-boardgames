@@ -1,0 +1,65 @@
+type User {
+  id: ID!
+  name: String
+}
+
+type Review {
+  id: ID!
+  user: User!
+  game: Game!
+  content: String
+  rating: Int
+  updatedAt: String
+}
+
+type Game {
+  id: ID!
+  creator: User!
+  name: String!
+  description: String
+  owned: Boolean
+  updatedAt: String
+  owners: [User]
+  reviews: [Review]
+}
+
+input GameInput {
+  name: String!
+  description: String
+}
+
+input ReviewInput {
+  gameId: ID!
+  content: String
+  rating: Int
+}
+
+input OwnerInput {
+  gameId: ID!
+  owned: Boolean!
+}
+
+type Query {
+  me: User!
+  getGame(gameId: ID!): Game
+  listGames: [Game]
+}
+
+type Mutation {
+  createGame(input: GameInput!): Game
+  createReview(input: ReviewInput!): Review
+  addOwner(input: OwnerInput!): Game
+}
+
+type Subscription {
+  addGame: Game
+    @aws_subscribe(mutations: ["createGame"])
+  addReview: Review
+    @aws_subscribe(mutations: ["createReview"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

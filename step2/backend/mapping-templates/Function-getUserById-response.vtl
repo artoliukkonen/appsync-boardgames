@@ -1,0 +1,7 @@
+#if($util.isNull($context.result))
+    #set($result = {})
+    $util.qr($result.put("id", $context.identity.cognitoIdentityId))
+    #return($result)
+#end
+
+$util.toJson($context.result)

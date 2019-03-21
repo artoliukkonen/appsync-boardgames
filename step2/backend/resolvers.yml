@@ -1,0 +1,21 @@
+mappingTemplates:
+  - type: Mutation
+    field: createGame
+    dataSource: Lambda
+    request: Mutation-createGame-request.vtl
+    response: common-response.vtl
+  - type: Query
+    field: listGames
+    dataSource: Lambda
+    request: Query-listGames-request.vtl
+    response: common-response.vtl
+  - type: Game
+    field: reviews
+    dataSource: Lambda
+    request: Game-reviews-request.vtl
+    response: common-response.vtl
+  - type: Game
+    field: owners
+    dataSource: Lambda
+    request: Game-owners-request.vtl
+    response: common-response.vtl
