@@ -42,7 +42,7 @@ export async function request(event) {
         return result;
       }
       console.log('UNKNOWN EVENT', event);
-      return {};
+      return [];
     });
 }
 
