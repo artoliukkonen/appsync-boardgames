@@ -15,7 +15,7 @@ class GameForm extends React.Component {
   render() {
     return (
       <Mutation mutation={CREATE_GAME}>
-        {(addReview, { data }) => (
+        {(addReview) => (
           <Card title="Add game">
             <form
               onSubmit={e => {

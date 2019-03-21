@@ -1,20 +1,3 @@
-input PagingRequest {
-  limit: Int
-  nextToken: String
-}
-
-# type ReviewPagingConnection {
-#   totalCount: Int
-#   items: [Review]
-#   nextToken: String
-# }
-
-# type UserPagingConnection {
-#   totalCount: Int
-#   items: [User]
-#   nextToken: String
-# }
-
 type User {
   id: ID!
   name: String
