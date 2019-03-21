@@ -1,0 +1,9 @@
+@import '~antd/dist/antd.css';
+
+h1 {
+  color: #ccc;
+}
+
+img {
+  max-width: 100%;
+}

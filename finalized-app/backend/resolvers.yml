@@ -1,0 +1,73 @@
+mappingTemplates:
+  - type: Mutation
+    field: createGame
+    dataSource: Lambda
+    request: Mutation-createGame-request.vtl
+    response: common-response.vtl
+  - type: Mutation
+    field: createReview
+    dataSource: Lambda
+    request: Mutation-createReview-request.vtl
+    response: common-response.vtl
+  - type: Mutation
+    field: addOwner
+    dataSource: Lambda
+    request: Mutation-addOwner-request.vtl
+    response: common-response.vtl
+    kind: PIPELINE
+    functions:
+      - addOwner
+      - getGame
+  - type: Query
+    field: getGame
+    dataSource: Lambda
+    request: Query-getGame-request.vtl
+    response: common-response.vtl
+  - type: Query
+    field: listGames
+    dataSource: Lambda
+    request: Query-listGames-request.vtl
+    response: common-response.vtl
+  - type: Query
+    field: me
+    request: Query-me-request.vtl
+    response: common-response.vtl
+    kind: PIPELINE
+    functions:
+      - getUserById
+      # - getProfilePictureForId
+  - type: Game
+    field: reviews
+    dataSource: Lambda
+    request: Game-reviews-request.vtl
+    response: common-response.vtl
+  - type: Game
+    field: owners
+    dataSource: Lambda
+    request: Game-owners-request.vtl
+    response: common-response.vtl
+  - type: Review
+    field: user
+    request: Review-user-request.vtl
+    response: common-response.vtl
+    kind: PIPELINE
+    functions:
+      - getUserById
+      # - getProfilePictureForId
+functionConfigurations:
+  - dataSource: Lambda
+    name: getGame
+    request: Function-getGame-request.vtl
+    response: common-response.vtl
+  - dataSource: Lambda
+    name: getUserById
+    request: Function-getUserById-request.vtl
+    response: Function-getUserById-response.vtl
+  - dataSource: Lambda
+    name: addOwner
+    request: Function-addOwner-request.vtl
+    response: common-response.vtl
+  # - dataSource: ProfilePictures
+  #   name: getProfilePictureForId
+  #   request: Function-getProfilePictureForId-request.vtl
+  #   response: Function-getProfilePictureForId-response.vtl

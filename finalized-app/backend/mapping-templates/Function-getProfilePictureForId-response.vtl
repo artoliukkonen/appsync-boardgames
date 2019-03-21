@@ -1,0 +1,4 @@
+#set($result = $context.prev.result)
+$util.qr($result.put("profilePicture", $context.result))
+
+$util.toJson($result)
