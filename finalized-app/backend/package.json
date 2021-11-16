@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "aws-amplify-serverless-plugin": "^1.4.1",
-    "aws-sdk": "^2.414.0",
+    "aws-sdk": "^2.814.0",
     "uuid": "^3.3.2"
   }
 }
