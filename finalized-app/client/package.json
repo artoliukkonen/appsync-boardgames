@@ -10,7 +10,7 @@
     "aws-appsync": "^1.7.2",
     "aws-appsync-react": "^1.2.7",
     "graphql-tag": "^2.10.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.8.4",
     "react-apollo": "^2.5.2",
     "react-dom": "^16.8.4",
